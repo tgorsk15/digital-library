@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    width: 700px;
+    height: 700px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.main-container > div {
+    border: 2px solid black;
+}
+
+.bookshelf {
+    grid-row: 1 / 4;
+}
+
+.form-container {
+    grid-column: 2;
+    grid-row: 1 / 3;
+}
