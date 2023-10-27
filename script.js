@@ -18,6 +18,8 @@ function addBookToLibrary(book) {
     console.log(myLibrary)
 };
 
+// reference to add book form
+const bookForm = document.getElementById('book-form');
 
 
 // submit button that triggers a creation of an
@@ -31,13 +33,14 @@ addBook.addEventListener('click', (event) => {
     const authorName = document.getElementById('author-name');
     const pagesNumber = document.getElementById('pages-number');
     const readBook = document.getElementById('read-book');
-
+    
     // creates the new object with Book() as the prototype
-    const book = new Book(bookName, authorName, pagesNumber,
-        readBook)
+    const book = new Book(bookName.value, authorName.value, pagesNumber.value,
+        readBook.value)
     console.log(book)
 
     addBookToLibrary(book)
+    bookForm.reset()
 });
 
 console.log('test')
