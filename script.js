@@ -10,9 +10,6 @@ function Book(name, author, pages, isRead) {
 }
 
 
-// adding the contents and styling of the card
-// to the bookshelf.
-// this is where name, author, etc info is used...
 function addBookToLibrary(book) {
     myLibrary.push(book);
     console.log(myLibrary)
@@ -39,8 +36,20 @@ addBook.addEventListener('click', (event) => {
         readBook.value)
     console.log(book)
 
-    addBookToLibrary(book)
-    bookForm.reset()
+    addBookToLibrary(book);
+    createCard(book);
+    bookForm.reset();
 });
+
+// reference to cards-holder section
+const cardStorage = document.querySelector('.cards-holder')
+
+function createCard(book) {
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book-card');
+    // problem: Coming up as 'undefined' for the below
+    bookCard.textContent = `This is a test for ${book.bookName}`;
+    cardStorage.appendChild(bookCard);
+}
 
 console.log('test')
