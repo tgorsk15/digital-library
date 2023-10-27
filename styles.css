@@ -10,11 +10,11 @@ body {
 }
 
 .main-container {
-    width: 700px;
+    width: 800px;
     height: 700px;
     display: grid;
     gap: 15px;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.5fr 2fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
 
@@ -37,4 +37,9 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.add-book {
+    display: block;
+    max-width: 50px;
 }
