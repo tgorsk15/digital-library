@@ -17,9 +17,16 @@ Book.prototype.createCard = function() {
     console.log('test')
     const bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
-    // problem: Coming up as 'undefined' for the below
+    // add in book icon container:
+    const bookIcon = document.createElement('div');
+    bookIcon.classList.add('book-icon');
+    cardStorage.appendChild(bookIcon);
+
+    bookIcon.textContent = 'test'
     
-    bookCard.textContent = `This is a test for ${bookName.value}`;
+    bookCard.textContent = `Book: ${bookName.value}   Author: ${authorName.value}
+    \r\n# of pages: ${pagesNumber.value}
+    \r\n Finished reading?: ${readBook.value}`;
     cardStorage.appendChild(bookCard);
 };
 
