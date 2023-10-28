@@ -9,6 +9,12 @@ function Book(bookName, authorName, pagesNumber, readBook) {
     // put 
 }
 
+function generateColor(item) {
+    item.style.backgroundColor = 
+    'hsl(' + 360 * Math.random() + ',' +
+    (25 + 70 * Math.random()) + '%,' +
+    (85 + 10 * Math.random()) + '%)'
+}
 
 // reference to cards-holder section
 const cardStorage = document.querySelector('.cards-holder')
@@ -22,12 +28,21 @@ Book.prototype.createCard = function() {
     bookIcon.classList.add('book-icon');
     cardStorage.appendChild(bookIcon);
 
-    bookIcon.textContent = 'test'
+    //actual icon photo
+    const bookPic = document.createElement('img');
+    bookPic.src = "icons8-book-64.png"
+    bookPic.classList.add('book-pic');
+    bookIcon.appendChild(bookPic);
+
+    // plan is to have the background color of the icon box
+    // be a randomly generated color
     
-    bookCard.textContent = `Book: ${bookName.value}   Author: ${authorName.value}
+    bookCard.textContent = `${bookName.value}, by ${authorName.value}
     \r\n# of pages: ${pagesNumber.value}
     \r\n Finished reading?: ${readBook.value}`;
     cardStorage.appendChild(bookCard);
+
+    generateColor(bookIcon);
 };
 
 
