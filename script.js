@@ -16,6 +16,12 @@ function generateColor(item) {
     (85 + 10 * Math.random()) + '%)'
 }
 
+Book.prototype.checkReadBook = function() {
+    if (readBook === true) {
+
+    }
+}
+
 // reference to cards-holder section
 const cardStorage = document.querySelector('.cards-holder')
 
@@ -34,15 +40,26 @@ Book.prototype.createCard = function() {
     bookPic.classList.add('book-pic');
     bookIcon.appendChild(bookPic);
 
-    // plan is to have the background color of the icon box
-    // be a randomly generated color
     
     bookCard.textContent = `${bookName.value}, by ${authorName.value}
     \r\n# of pages: ${pagesNumber.value}
     \r\n Finished reading?: ${readBook.value}`;
     cardStorage.appendChild(bookCard);
 
+    // gives background a randomly generated light color
     generateColor(bookIcon);
+
+    // delete book button on bookCard:
+    const deleteBook = document.createElement('button');
+    deleteBook.classList.add('delete-book');
+    deleteBook.textContent = 'X'
+    bookCard.appendChild(deleteBook);
+
+    // book to toggle read or not read
+    const readButton = document.createElement('button');
+    readButton.classList.add('read-button');
+    readButton.textContent = 'test'
+    bookCard.appendChild(readButton);
 };
 
 
@@ -74,8 +91,18 @@ addBook.addEventListener('click', (event) => {
     
     book.createCard();
 
+    // have to put in function to check whether book is read
+    // depending on outcome, button will be changed
+
+    // readBook must FIRST be converted into a Boolean value:
+
     bookForm.reset();
 });
+
+// create an addEventListener for when read-button is clicked:
+
+
+// create addEventListener for delete button
 
 
 console.log('test')

@@ -58,6 +58,7 @@ form {
 }
 
 .book-card {
+    position: relative;
     grid-column: 2 / 4;
     height: 89px;
     white-space: pre;
@@ -78,4 +79,28 @@ form {
 
 .book-pic {
     height: 80px;
+}
+
+.delete-book {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    background-color: rgb(240, 92, 92);
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgb(240, 92, 92);
+    border-radius: 25%;
+}
+
+.read-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgb(120, 215, 120);
+    height: 20px;
+    width: 50px;
+    border: 1px solid rgb(120, 215, 120);
+    border-radius: 12%;
+    color: white;
 }
