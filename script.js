@@ -16,11 +16,11 @@ function generateColor(item) {
     (85 + 10 * Math.random()) + '%)'
 }
 
-Book.prototype.checkReadBook = function() {
-    if (readBook === true) {
-
-    }
-}
+// Book.prototype.checkReadBook = function() {
+//     if (readBook === true) {
+//         readButton.style.backgroundColor = 'rgb(120, 215, 120)'
+//     }
+// }
 
 // reference to cards-holder section
 const cardStorage = document.querySelector('.cards-holder')
@@ -58,8 +58,14 @@ Book.prototype.createCard = function() {
     // book to toggle read or not read
     const readButton = document.createElement('button');
     readButton.classList.add('read-button');
-    readButton.textContent = 'test'
+    if (readBook.value === 'yes') {
+        readButton.textContent = 'Read'
+    } else if (readBook.value === 'no') {
+        readButton.textContent = 'Not read'
+    };
     bookCard.appendChild(readButton);
+
+    
 };
 
 
@@ -67,6 +73,10 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
     console.log(myLibrary)
 };
+
+
+// Boolean value set up
+// let bookIsRead = 0
 
 // reference to add book form
 const bookForm = document.getElementById('book-form');
@@ -95,12 +105,28 @@ addBook.addEventListener('click', (event) => {
     // depending on outcome, button will be changed
 
     // readBook must FIRST be converted into a Boolean value:
+    // console.log(readBook.value)
+    // if (readBook.value = 'Yes') {
+    //     let bookIsRead = 1
+    // } else if (readBook.value = 'No') {
+    //     let bookIsRead = 0
+    // };
+    // console.log(bookIsRead);
 
     bookForm.reset();
 });
 
 // create an addEventListener for when read-button is clicked:
-
+// readButton.addEventListener('click', () => {
+//     console.log(readBook.value)
+//     if (readBook.value = 'yes') {
+//         readBook.value = 'no'
+//         readButton.textContent = 'Not read'
+//     } else if (readBook.value = 'no'){
+//         readBook.value = 'yes'
+//         readButton.textContent = 'Read'
+//     };
+// })
 
 // create addEventListener for delete button
 
