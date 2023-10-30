@@ -10,7 +10,7 @@ body {
 }
 
 .main-container {
-    width: 1000px;
+    width: 1150px;
     height: 700px;
     display: grid;
     gap: 15px;
@@ -24,37 +24,74 @@ body {
 
 .bookshelf {
     grid-row: 1 / 4;
+    /* overflow: auto; */
 }
 
 .form-container {
     grid-column: 2;
     grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr 7fr;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.form-header {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.form-spacer {
+    grid-row: 1 / 3;
+    background: linear-gradient(skyblue, rgb(25, 179, 179));
 }
 
 form {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
     padding: 15px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-left: 20px;
 }
 
 .add-book {
     /* display: block; */
-    max-width: 100px;
+    max-width: 120px;
+    height: 30px;
+    /* margin-left: 35px; */
+    border-radius: 15px;
+    background-color: rgb(125, 177, 210);
+    color: white;
+    border: none;
+}
+
+.add-book:hover {
+    background-color: rgb(174, 203, 221);
 }
 
 .shelf-header {
     padding: 15px;
     padding-left: 25px;
-    font-size: 20px;
-    border-bottom: 2px inset blue;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    border-bottom: 2px inset rgb(87, 180, 242);
 }
 
 .cards-holder {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 100px;
+    height: 642px;
+    overflow: auto;
 }
 
 .book-card {
@@ -63,6 +100,7 @@ form {
     height: 89px;
     white-space: pre;
     font-size: 15px;
+    font-family: 'Roboto', sans-serif;
     padding: 8px;
     border-bottom: 2px solid black;
 }

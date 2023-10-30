@@ -7,20 +7,16 @@ function Book(bookName, authorName, pagesNumber, readBook) {
     this.pagesNumber = pagesNumber;
     this.readBook = readBook;
     // put 
-}
+   
+};
 
 function generateColor(item) {
     item.style.backgroundColor = 
     'hsl(' + 360 * Math.random() + ',' +
     (25 + 70 * Math.random()) + '%,' +
     (85 + 10 * Math.random()) + '%)'
-}
+};
 
-// Book.prototype.checkReadBook = function() {
-//     if (readBook === true) {
-//         readButton.style.backgroundColor = 'rgb(120, 215, 120)'
-//     }
-// }
 
 // reference to cards-holder section
 const cardStorage = document.querySelector('.cards-holder')
@@ -43,7 +39,7 @@ Book.prototype.createCard = function() {
     
     bookCard.textContent = `${bookName.value}, by ${authorName.value}
     \r\n# of pages: ${pagesNumber.value}
-    \r\n Finished reading?: ${readBook.value}`;
+    \r\n Finished reading?  ${readBook.value}`;
     cardStorage.appendChild(bookCard);
 
     // gives background a randomly generated light color
@@ -65,7 +61,16 @@ Book.prototype.createCard = function() {
     };
     bookCard.appendChild(readButton);
 
-    
+    // this.readButton.addEventListener('click', () => {
+    //     console.log(readBook.value)
+    //     if (readBook.value = 'yes') {
+    //         readBook.value = 'no'
+    //         readButton.textContent = 'Not read'
+    //     } else if (readBook.value = 'no'){
+    //         readBook.value = 'yes'
+    //         readButton.textContent = 'Read'
+    //     };
+    // });
 };
 
 
@@ -106,12 +111,7 @@ addBook.addEventListener('click', (event) => {
 
     // readBook must FIRST be converted into a Boolean value:
     // console.log(readBook.value)
-    // if (readBook.value = 'Yes') {
-    //     let bookIsRead = 1
-    // } else if (readBook.value = 'No') {
-    //     let bookIsRead = 0
-    // };
-    // console.log(bookIsRead);
+   
 
     bookForm.reset();
 });
