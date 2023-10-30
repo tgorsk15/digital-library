@@ -73,15 +73,27 @@ Book.prototype.createCard = function() {
     // });
 };
 
-
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-    console.log(myLibrary)
+Book.prototype.checkReadBook = function() {
+    console.log(readBook.value)
+    if (readBook.value = 'yes') {
+        readBook.value = 'no'
+        readButton.textContent = 'Not read'
+    } else if (readBook.value = 'no'){
+        readBook.value = 'yes'
+        readButton.textContent = 'Read'
+    };
 };
 
+// event for readButton
+readButton.addEventListener('click', () => {
+    checkReadBook()
+})
 
-// Boolean value set up
-// let bookIsRead = 0
+
+// function addBookToLibrary(book) {
+//     myLibrary.push(book);
+//     console.log(myLibrary)
+// };
 
 // reference to add book form
 const bookForm = document.getElementById('book-form');
@@ -105,13 +117,6 @@ addBook.addEventListener('click', (event) => {
     addBookToLibrary(book);
     
     book.createCard();
-
-    // have to put in function to check whether book is read
-    // depending on outcome, button will be changed
-
-    // readBook must FIRST be converted into a Boolean value:
-    // console.log(readBook.value)
-   
 
     bookForm.reset();
 });
