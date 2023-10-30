@@ -26,7 +26,8 @@ body {
 
 .bookshelf {
     grid-row: 1 / 4;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .form-container {
@@ -92,7 +93,7 @@ form {
 .cards-holder {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 642px;
+    max-height: 637px;
     overflow: auto;
 }
 
@@ -112,7 +113,7 @@ form {
     justify-content: center;
     align-items: center;
     grid-column: 1;
-    height: 100px;
+    height: 99px;
     padding: 4px 0px;
     /* border: 2px solid red; */
 }
