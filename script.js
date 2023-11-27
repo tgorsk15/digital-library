@@ -1,13 +1,11 @@
-// array to store only the book OBJECTS
-const myLibrary = [];
 
-function Book(bookName, authorName, pagesNumber, readBook) {
+class Book {
+    constructor (bookName, authorName, pagesNumber, readBook) {
     this.bookName = bookName;
     this.authorName = authorName;
     this.pagesNumber = pagesNumber;
     this.readBook = readBook;
-    // put 
-   
+   }
 };
 
 function generateColor(item) {
@@ -20,6 +18,11 @@ function generateColor(item) {
 
 // reference to cards-holder section
 const cardStorage = document.querySelector('.cards-holder')
+
+//reference to readButton
+const readButton = document.createElement('button');
+readButton.classList.add('read-button');
+
 
 Book.prototype.createCard = function() {
     console.log('test')
@@ -61,19 +64,9 @@ Book.prototype.createCard = function() {
     };
     bookCard.appendChild(readButton);
 
-    // this.readButton.addEventListener('click', () => {
-    //     console.log(readBook.value)
-    //     if (readBook.value = 'yes') {
-    //         readBook.value = 'no'
-    //         readButton.textContent = 'Not read'
-    //     } else if (readBook.value = 'no'){
-    //         readBook.value = 'yes'
-    //         readButton.textContent = 'Read'
-    //     };
-    // });
 };
 
-Book.prototype.checkReadBook = function() {
+Book.prototype.checkReadBook = function(readBook) {
     console.log(readBook.value)
     if (readBook.value = 'yes') {
         readBook.value = 'no'
@@ -86,14 +79,10 @@ Book.prototype.checkReadBook = function() {
 
 // event for readButton
 readButton.addEventListener('click', () => {
-    checkReadBook()
+    console.log('test')
+    checkReadBook(readBook)
 })
 
-
-// function addBookToLibrary(book) {
-//     myLibrary.push(book);
-//     console.log(myLibrary)
-// };
 
 // reference to add book form
 const bookForm = document.getElementById('book-form');
@@ -114,7 +103,6 @@ addBook.addEventListener('click', (event) => {
     console.log(book)
 
     // adds the instance of book to myLibrary
-    addBookToLibrary(book);
     
     book.createCard();
 
