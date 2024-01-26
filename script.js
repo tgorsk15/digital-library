@@ -16,6 +16,9 @@ function generateColor(item) {
 };
 
 
+
+
+
 // reference to cards-holder section
 const cardStorage = document.querySelector('.cards-holder')
 
@@ -91,6 +94,13 @@ const bookName = document.getElementById('book-name');
 const authorName = document.getElementById('author-name');
 const pagesNumber = document.getElementById('pages-number');
 const readBook = document.getElementById('read-book');
+
+// references for error boxes
+const nameError = document.querySelector('.name-error');
+const authorError = document.querySelector('.author-error');
+const pagesError = document.querySelector('.pages-error');
+const readError = document.querySelector('.read-error');
+
 // submit button that triggers a creation of an
 // object based on the Book constructor
 const addBook = document.querySelector('.add-book')
@@ -109,19 +119,38 @@ addBook.addEventListener('click', (event) => {
     bookForm.reset();
 });
 
-// create an addEventListener for when read-button is clicked:
-// readButton.addEventListener('click', () => {
-//     console.log(readBook.value)
-//     if (readBook.value = 'yes') {
-//         readBook.value = 'no'
-//         readButton.textContent = 'Not read'
-//     } else if (readBook.value = 'no'){
-//         readBook.value = 'yes'
-//         readButton.textContent = 'Read'
-//     };
-// })
 
-// create addEventListener for delete button
+const formController = function () {
+
+    function checkBookTitle() {
+
+    }
 
 
+    
+    function checkBookAuthor() {
+        if (authorName.validity.tooShort) {
+            console.log('this is too short')
+            authorError.textContent = `Author name needs to be at
+            least ${authorName.minLength} characters long`;
+        } else if (!authorName.validity.tooShort) {
+            authorError.textContent = '';
+        }
+
+    }
+
+    authorName.addEventListener('input', () => {
+        checkBookAuthor();
+
+    });
+
+
+
+    return {checkBookTitle, checkBookAuthor}
+
+}
+
+
+formController();
 console.log('test')
+console.log('test34')

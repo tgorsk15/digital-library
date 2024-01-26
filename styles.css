@@ -145,3 +145,9 @@ form {
     border-radius: 12%;
     color: white;
 }
+
+
+/* Error styling */
+.author-error {
+    display: block;
+}
