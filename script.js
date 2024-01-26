@@ -122,13 +122,19 @@ addBook.addEventListener('click', (event) => {
 
 const formController = function () {
 
-    function checkBookTitle() {
-
+    function checkBookName() {
+        
+        if (bookName.validity.valueMissing) {
+            console.log('check me plz');
+            nameError.textContent = `You must give the title
+            of the book`;
+        } else if (!bookName.validity.valueMissing) {
+            nameError.textContent = '';
+        }
     }
 
     function checkBookPages() {
         if (pagesNumber.validity.rangeOverflow) {
-            console.log('too many pages');
             pagesError.textContent = `Page amount must be below
             ${pagesNumber.max}`
         } else if (!pagesNumber.validity.rangeOverflow) {
@@ -138,7 +144,6 @@ const formController = function () {
     
     function checkBookAuthor() {
         if (authorName.validity.tooShort) {
-            console.log('this is too short')
             authorError.textContent = `Author name needs to be at
             least ${authorName.minLength} characters long`;
         } else if (!authorName.validity.tooShort) {
@@ -146,6 +151,10 @@ const formController = function () {
         }
 
     }
+
+    bookName.addEventListener('input', () => {
+        checkBookName();
+    });
 
     authorName.addEventListener('input', () => {
         checkBookAuthor();
@@ -157,7 +166,7 @@ const formController = function () {
 
 
 
-    return {checkBookTitle, checkBookAuthor, checkBookPages}
+    return {checkBookName, checkBookAuthor, checkBookPages}
 
 }
 

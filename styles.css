@@ -148,13 +148,17 @@ form {
 
 
 /* Error styling */
-.name-error {
-    display: block;
+#book-name:invalid {
+    background-color: rgb(233, 165, 165);
 }
 
-/* .author-name:valid {
-    background-color: white;
-} */
+.name-error {
+    display: block;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 7px;
+}
+
 
 #author-name:invalid {
     background-color: rgb(233, 165, 165);
@@ -165,6 +169,10 @@ form {
     font-weight: bold;
     color: red;
     margin-bottom: 7px;
+}
+
+#pages-number:invalid {
+    background-color: rgb(233, 165, 165);
 }
 
 .pages-error {
