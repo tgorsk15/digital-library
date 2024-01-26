@@ -126,7 +126,15 @@ const formController = function () {
 
     }
 
-
+    function checkBookPages() {
+        if (pagesNumber.validity.rangeOverflow) {
+            console.log('too many pages');
+            pagesError.textContent = `Page amount must be below
+            ${pagesNumber.max}`
+        } else if (!pagesNumber.validity.rangeOverflow) {
+            pagesError.textContent = '';
+        }
+    }
     
     function checkBookAuthor() {
         if (authorName.validity.tooShort) {
@@ -141,12 +149,15 @@ const formController = function () {
 
     authorName.addEventListener('input', () => {
         checkBookAuthor();
-
     });
 
+    pagesNumber.addEventListener('input', () => {
+        checkBookPages();
+    })
 
 
-    return {checkBookTitle, checkBookAuthor}
+
+    return {checkBookTitle, checkBookAuthor, checkBookPages}
 
 }
 

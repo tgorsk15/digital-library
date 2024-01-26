@@ -148,6 +148,28 @@ form {
 
 
 /* Error styling */
+.name-error {
+    display: block;
+}
+
+/* .author-name:valid {
+    background-color: white;
+} */
+
+#author-name:invalid {
+    background-color: rgb(233, 165, 165);
+}
+
 .author-error {
     display: block;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 7px;
+}
+
+.pages-error {
+    display: block;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 7px;
 }
